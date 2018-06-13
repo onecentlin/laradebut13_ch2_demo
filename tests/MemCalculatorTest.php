@@ -16,5 +16,13 @@ class MemCalculatorTest extends TestCase
         $this->assertEquals(0, $lastSum);
     }
 
+    /** @test */
+    public function add_WhenCalled_ChangesSum()
+    {
+        $calc = new MemCalculator();
+        $calc->add(1);
+        $lastSum = $calc->sum();
+        $this->assertEquals(1, $lastSum);
+    }
 }
 
