@@ -44,4 +44,24 @@ class LogAnalyzerTest extends TestCase
         $result = $analyzer->isValidLogFileName($file);
         $this->assertTrue($result);
     }
+
+    /**
+     * @test
+     * @dataProvider  provideFileData
+     */
+    public function isValidLogFileName_VariousExtensions_ChecksThem($file, $expected)
+    {
+        $analyzer = new LogAnalyzer();
+        $result = $analyzer->isValidLogFileName($file);
+        $this->assertEquals($expected, $result);
+    }
+
+    public function provideFileData()
+    {
+        return [
+            ["filewithgoodextension.SLF", true],
+            ["filewithgoodextension.slf", true],
+            ["filewithbadextension.foo", false]
+        ];
+    }
 }
