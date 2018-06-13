@@ -64,4 +64,15 @@ class LogAnalyzerTest extends TestCase
             ["filewithbadextension.foo", false]
         ];
     }
+
+    /**
+     * @test
+     * @expectedException  Exception
+     */
+    public function isValidFileName_EmptyFileName_ThrowsException()
+    {
+        $analyzer = new LogAnalyzer();
+        $result = $analyzer->isValidLogFileName("");
+    }
+
 }

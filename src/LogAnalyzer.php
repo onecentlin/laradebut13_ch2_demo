@@ -7,6 +7,10 @@ class LogAnalyzer
 {
     public function isValidLogFileName(string $fileName)
     {
+        if ($fileName == "") {
+            throw new \Exception("filename has to be provided");
+        }
+
         if (strcasecmp(substr($fileName, -4), ".SLF") != 0) {
             return false;
         }
