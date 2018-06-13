@@ -98,4 +98,13 @@ class LogAnalyzerTest extends TestCase
     {
         // Test
     }
+
+    /** @test */
+    public function isValidFileName_WhenCalled_ChangesWasLastFileNameValid()
+    {
+        $analyzer = new LogAnalyzer();
+        $analyzer->isValidLogFileName("laradebut.foo");
+        $this->assertFalse($analyzer->wasLastFileNameValid);
+    }
+
 }
