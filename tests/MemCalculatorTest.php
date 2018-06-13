@@ -11,7 +11,7 @@ class MemCalculatorTest extends TestCase
     /** @test */
     public function sum_ByDefault_ReturnsZero()
     {
-        $calc = new MemCalculator();
+        $calc = $this->makeCalc();
         $lastSum = $calc->sum();
         $this->assertEquals(0, $lastSum);
     }
@@ -19,10 +19,15 @@ class MemCalculatorTest extends TestCase
     /** @test */
     public function add_WhenCalled_ChangesSum()
     {
-        $calc = new MemCalculator();
+        $calc = $this->makeCalc();
         $calc->add(1);
         $lastSum = $calc->sum();
         $this->assertEquals(1, $lastSum);
+    }
+
+    private static function makeCalc()
+    {
+        return new MemCalculator();
     }
 }
 
