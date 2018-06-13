@@ -31,4 +31,17 @@ class LogAnalyzerTest extends TestCase
         $result = $analyzer->isValidLogFileName("filewithgoodxtension.SLF");
         $this->assertTrue($result);
     }
+
+    // 2.5 使用參數來重構測試
+    /**
+     * @test
+     * @param      file
+     * @testWith   ["filewithgoodextension.SLF"]
+     */
+    public function isValidLogFileName_ValidExtensions_ReturnsTrue($file)
+    {
+        $analyzer = new LogAnalyzer();
+        $result = $analyzer->isValidLogFileName($file);
+        $this->assertTrue($result);
+    }
 }
