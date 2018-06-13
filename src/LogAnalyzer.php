@@ -7,7 +7,7 @@ class LogAnalyzer
 {
     public function isValidLogFileName(string $fileName)
     {
-        if (substr($fileName, -4) === ".SLF") {
+        if (substr($fileName, -4) !== ".SLF") {
             return false;
         }
         return true;
