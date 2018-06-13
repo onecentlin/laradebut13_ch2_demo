@@ -75,4 +75,27 @@ class LogAnalyzerTest extends TestCase
         $result = $analyzer->isValidLogFileName("");
     }
 
+    // 2.6.3 忽略測試 (p.47)
+
+    /** @test */
+    public function this_test_is_incomplete()
+    {
+        // Test
+        $this->markTestIncomplete("Not complete yet");
+    }
+
+    /** @test */
+    public function this_test_is_skipped()
+    {
+        $this->markTestSkipped("Skip Me!");
+    }
+
+    /**
+     * @test
+     * @requires PHP 7.3
+     */
+    public function this_test_is_skipped_use_requires_annotation()
+    {
+        // Test
+    }
 }
